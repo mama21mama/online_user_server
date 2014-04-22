@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 #
-# v0.1.2
+# v0.1.3
 #
 #################################################
-#Code Snippit					#
+#          ««Online User Server»»		#
 #Muestra Usuarios Concurrentes			#
 #Zeuza Server - http://mamalibre.com.ar		#
 #Autor http://legadolibre.com.ar/mama21mama	#
@@ -38,9 +38,10 @@ suma="$DDPATH"
 if (( $suma < 144 )) ; then 			# Poner valor 20 primera vez. Cuando llegue al punto 
 	parte="No paso el record.";		# maximo editarlo y reiniciar script. 
 elif (( $suma > 144 )) ; then			# Poner valor 20 primera vez.
-    cat /tmp/online2 > /tmp/online_record
+    cat /tmp/online2 > /tmp/online_record;
     record="$(cat /tmp/online_record)"
 	parte="Yes, paso el record.";
+	wget -q --password 123456 --user myuser --post-data="" 'http://legadolibre.com.ar/api/statuses/update.xml?source=bash-social-updater&status='"usuarios concurrentes  zeuza server $record - mejor dia $record "'!'"legadolibre" & # Envia a GNUsocial
 else
 	parte="recalculando";
 	fi
