@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# v0.1.1
+# v0.1.2
 #
 #################################################
 #Code Snippit					#
@@ -23,35 +23,21 @@
 ################################################################
 for (( ; ; ))
 do
-netstat -ant |grep 13 |grep EST |awk '{print($5)}' > /tmp/online
-netstat -ant |grep 20 |grep EST |awk '{print($5)}' >> /tmp/online
-netstat -ant |grep 21 |grep EST |awk '{print($5)}' >> /tmp/online
-netstat -ant |grep 80 |grep EST |awk '{print($5)}' >> /tmp/online
-netstat -ant |grep 443 |grep EST |awk '{print($5)}' >> /tmp/online
-netstat -ant |grep 2323 |grep EST |awk '{print($5)}' >> /tmp/online
-netstat -ant |grep 3306 |grep EST |awk '{print($5)}' >> /tmp/online
-netstat -ant |grep 5222 |grep EST |awk '{print($5)}' >> /tmp/online
-netstat -ant |grep 5269 |grep EST |awk '{print($5)}' >> /tmp/online
-netstat -ant |grep 5280 |grep EST |awk '{print($5)}' >> /tmp/online
-netstat -ant |grep 6667 |grep EST |awk '{print($5)}' >> /tmp/online
-netstat -ant |grep 8000 |grep EST |awk '{print($5)}' >> /tmp/online
-netstat -ant |grep 61941 |grep EST |awk '{print($5)}' >> /tmp/online 
+netstat -ant | grep EST |awk '{print($5)}' > /tmp/online
 sleep 5s
 clear
-# Define a timestamp function
 timestamp() {
   date +"%T %d/%m/%y"
 }
-# do something...
-timestamp # print timestamp
+timestamp
 echo -e "\e[30;48;5;82m usuarios concurrentes\e[0m"
 echo -e "\e[30;48;5;82m zeuza server\e[0m"
 cat /tmp/online |sort |uniq -c |sort | wc -l > /tmp/online2
 DDPATH="$(cat /tmp/online2)"
 suma="$DDPATH" 
-if (( $suma < 144 )) ; then
-	parte="No paso el record.";
-elif (( $suma > 144 )) ; then
+if (( $suma < 144 )) ; then 			# Poner valor 20 primera vez. Cuando llegue al punto 
+	parte="No paso el record.";		# maximo editarlo y reiniciar script. 
+elif (( $suma > 144 )) ; then			# Poner valor 20 primera vez.
     cat /tmp/online2 > /tmp/online_record
     record="$(cat /tmp/online_record)"
 	parte="Yes, paso el record.";
