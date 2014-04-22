@@ -3,11 +3,24 @@
 # v0.1.1
 #
 #################################################
-#Code Snippit									#
-#Muestra Usuarios Concurrentes					#
-#Zeuza Server - http://mamalibre.com.ar			#
-#Autor http://legadolibre.com.ar/mama21mama		#
+#Code Snippit					#
+#Muestra Usuarios Concurrentes			#
+#Zeuza Server - http://mamalibre.com.ar		#
+#Autor http://legadolibre.com.ar/mama21mama	#
 #################################################
+#
+################################################################
+# Este programa es software libre; puede redistribuirlo        #
+# y/o modificarlo bajo los términos de la GNU General Public   #
+# License publicada por la Free Software Foundation; tanto la  #
+# versión 2, como (opcionálmente) cualquier versión posterior. #
+#							       #
+# Este programa se distribuye con la esperanza de que  	       #
+# sea útil, pero SIN NINGUNA GARANTÍA; ni siquiera la          #
+# garantía implícita de COMERCIALIDAD o                        #
+# ADECUACIÓN PARA ALGÚN PROPÓSITO PARTICULAR. 	               #
+# Vea la GNU General Public License para más detalles.         #
+################################################################
 for (( ; ; ))
 do
 netstat -ant |grep 13 |grep EST |awk '{print($5)}' > /tmp/online
