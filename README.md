@@ -1,7 +1,8 @@
-online_user_server
+online user server
 ==================
 
-muestra usuarios concurrentes
+Cuenta las IP de todos los puertos con conexiones establecidas
+en fin, muestra usuarios concurrentes.
 
 
-$bash online.sh
+$./online
