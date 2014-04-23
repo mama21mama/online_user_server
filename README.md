@@ -17,7 +17,7 @@ retomamos
 
 $ps aux | grep online
 
-$screen -rS <pid>
+$screen -rS < pid >
 
 
 
